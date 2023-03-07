@@ -1,0 +1,243 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>自建短链服务 Url-Shorten-Worker | 般若</title>
+<link rel="shortcut icon" href="https://400808.xyz/favicon.ico?v=1678153818919">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://400808.xyz/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="自建短链服务 Url-Shorten-Worker | 般若 - Atom Feed" href="https://400808.xyz/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-168348943-1"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-168348943-1');
+</script>
+
+    <meta name="description" content="Url-Shorten-Worker
+A URL Shortener created using Cloudflare Worker
+API
+API Documentation (API文档)
+Getting start
+去Workers ..." />
+    <meta name="keywords" content="折腾狂魔" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://400808.xyz">
+  <img class="avatar" src="https://400808.xyz/images/avatar.png?v=1678153818919" alt="">
+  </a>
+  <h1 class="site-title">
+    般若
+  </h1>
+  <p class="site-description">
+    Real konws Real
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/tokuwakana" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              自建短链服务 Url-Shorten-Worker
+            </h2>
+            <div class="post-info">
+              <span>
+                2023-03-06
+              </span>
+              <span>
+                2 min read
+              </span>
+              
+                <a href="https://400808.xyz/tag/u8GCVVJTh/" class="post-tag">
+                  # 折腾狂魔
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <h2 id="url-shorten-worker">Url-Shorten-Worker</h2>
+<p>A URL Shortener created using Cloudflare Worker</p>
+<h2 id="api">API</h2>
+<p><a href="API.md">API Documentation (API文档)</a></p>
+<h1 id="getting-start">Getting start</h1>
+<h3 id="去workers-kv中创建一个命名空间">去Workers KV中创建一个命名空间</h3>
+<p>Go to Workers KV and create a namespace.</p>
+<img src="https://cdn.jsdelivr.net/npm/imst@0.0.4/20201205232805.png">
+添加一个条目Entry 密钥key为password，值value为一个随机字符串
+value为/登陆值
+### 去Worker的Settings选选项卡中绑定KV Namespace
+<p>Bind an instance of a KV Namespace to access its data in a Worker.</p>
+<img src="https://cdn.jsdelivr.net/npm/imst@0.0.4/20201205232536.png">
+<h3 id="其中variable-name填写links-kv-namespace填写你刚刚创建的命名空间">其中Variable name填写<code>LINKS</code>, KV namespace填写你刚刚创建的命名空间</h3>
+<p>Where Variable name should set as <code>LINKS</code> and KV namespace is the namespace you just created in the first step.</p>
+<img src="https://cdn.jsdelivr.net/npm/imst@0.0.4/20201205232704.png">
+<h3 id="复制本项目中的indexjs的代码到cloudflare-worker">复制本项目中的<code>index.js</code>的代码到Cloudflare Worker</h3>
+<p>Copy the <code>index.js</code> code from this project to Cloudflare Worker.</p>
+<p>new index.js  https://github.com/crazypeace/Url-Shorten-Worker/blob/main/index.js</p>
+<h3 id="点击save-and-deploy">点击Save and Deploy</h3>
+<p>Click Save and Deploy</p>
+<p>你可以通过在你自己的域名下worker页面添加一个路由指向worker的方式来实现比如 域名/value 替代 cf.workers.dev/value的效果。</p>
+<p>如果你想使用原版，worker里面的脚本使用 https://github.com/xyTom/Url-Shorten-Worker/blob/main/index.js 的内容</p>
+<h1 id="demo">Demo</h1>
+<p>https://lnks.tools/</p>
+<p>Note: Because someone abuse this demo website, all the generated link will automatically expired after 24 hours. For long-term use, please deploy your own.</p>
+<p>注意：所有由Demo网站生成的链接24小时后会自动失效，如需长期使用请自行搭建。</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#url-shorten-worker">Url-Shorten-Worker</a></li>
+<li><a href="#api">API</a></li>
+</ul>
+</li>
+<li><a href="#getting-start">Getting start</a><br>
+*
+<ul>
+<li><a href="#%E5%8E%BBworkers-kv%E4%B8%AD%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4">去Workers KV中创建一个命名空间</a></li>
+<li><a href="#%E5%85%B6%E4%B8%ADvariable-name%E5%A1%AB%E5%86%99links-kv-namespace%E5%A1%AB%E5%86%99%E4%BD%A0%E5%88%9A%E5%88%9A%E5%88%9B%E5%BB%BA%E7%9A%84%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4">其中Variable name填写<code>LINKS</code>, KV namespace填写你刚刚创建的命名空间</a></li>
+<li><a href="#%E5%A4%8D%E5%88%B6%E6%9C%AC%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84indexjs%E7%9A%84%E4%BB%A3%E7%A0%81%E5%88%B0cloudflare-worker">复制本项目中的<code>index.js</code>的代码到Cloudflare Worker</a></li>
+<li><a href="#%E7%82%B9%E5%87%BBsave-and-deploy">点击Save and Deploy</a></li>
+</ul>
+</li>
+<li><a href="#demo">Demo</a></li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+    
+</body>
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://400808.xyz/post/zi-jian-clash-zai-xian-ding-yue-zhuan-huan/">
+              <h3 class="post-title">
+                自建clash在线订阅转换
+              </h3>
+            </a>
+          </div>
+        
+<div id="vcomments"></div>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: '5JLvft1uQA8uuH9LJUFzHRxr-9Nh9j0Va',
+            appKey: 'Vy73iaf1dQEc5Ije28KpqbXV'
+        })
+    </script>
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://400808.xyz/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
+<head>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+</head>
+<body>
